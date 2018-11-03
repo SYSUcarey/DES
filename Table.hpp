@@ -3,12 +3,17 @@
  * 1. IP_Table : IP置换表
  * 2. IP_Inverse_Table : IP逆置换表
  * 3. E_Extend_Table ： E拓展置换表
+ * 4. S_Box_Table : 8个S沙盒置换表
+ * 5. P_Table ： P置换表
+ * 6. PC_1_Table ： PC1置换表
+ * 7. PC_2_Table ： PC2置换表
  */
 
-#ifndef TABLE
-#define TABLE
+#ifndef TABLE_HPP
+#define TABLE_HPP
 
-int IP_Table[64] = {
+// IP置换表, one-base
+int IP_Table[65] = {0,
 	58, 50, 42, 34, 26, 18, 10, 2,
 	60, 52, 44, 36, 28, 20, 12, 4,
 	62, 54, 46, 38, 30, 22, 14, 6,
@@ -19,7 +24,8 @@ int IP_Table[64] = {
 	63, 55, 47, 39, 31, 23, 15, 7
 };
 
-int IP_Inverse_Table[64] = {
+// IP逆置换表, one-base
+int IP_Inverse_Table[65] = {0,
 	40, 8, 48, 16, 56, 24, 64, 32,
 	39, 7, 47, 15, 55, 23, 63, 31,
 	38, 6, 46, 14, 54, 22, 62, 30,
@@ -30,7 +36,8 @@ int IP_Inverse_Table[64] = {
 	33, 1, 41, 9, 49, 17, 57, 25
 };
 
-int E_Extend_Table[64] = {
+// E拓展置换表, one-base
+int E_Extend_Table[65] = {0,
 	32, 1, 2, 3, 4, 5,
 	4, 5, 6, 7, 8, 9,
 	8, 9, 10, 11, 12, 13,
@@ -41,6 +48,7 @@ int E_Extend_Table[64] = {
 	28, 29, 30, 31, 32, 1
 };
 
+// 8个S沙盒置换表, zero-base
 int S_Box_Table[8][4][16] = {
     {
 	    {14, 4, 13, 1, 2, 15, 11, 8, 3, 10, 6, 12, 5, 9, 0, 7},
@@ -92,7 +100,8 @@ int S_Box_Table[8][4][16] = {
     }
 };
 
-int P_Table[32] = {
+// P置换表, one-base
+int P_Table[33] = {0,
 	16, 7, 20, 21,
 	29, 12, 28, 17,
 	1, 15, 23, 26,
@@ -103,7 +112,8 @@ int P_Table[32] = {
 	22, 11, 4, 25
 };
 
-int PC_1_Table[64] = {
+// PC1置换表, one-base
+int PC_1_Table[57] = {0,
 	57, 49, 41, 33, 25, 17, 9,
 	1, 58, 50, 42, 34, 26, 18,
 	10, 2, 59, 51, 43, 35, 27,
@@ -114,7 +124,8 @@ int PC_1_Table[64] = {
 	21, 13, 5, 28, 20, 12, 4
 };
 
-int PC_2_Table[64] = {
+// PC2置换表, one-base
+int PC_2_Table[49] = {0,
 	14, 17, 11, 24, 1, 5,
 	3, 28, 15, 6, 21, 10,
 	23, 19, 12, 4, 26, 8,
