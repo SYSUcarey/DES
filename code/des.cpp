@@ -1,7 +1,14 @@
+/*
+ * DES算法主函数以及辅助函数
+ * - void stringToBit(const char *in, char *out)：将8字符的字符串转化成64位的01数据
+ * void bitToString(const char* in, char* out)将64位的01数据转化成8字符的字符串
+ * void leftShift(char* key56)左移操作函数，将64位01数据分成左右两部分，分别左移1位
+ * - void getSubKey(string KEY, char (*SUBKEY)[49])：生成子密钥函数
+ * - void des(string input, string& output, bool isEncrypt, string key)：DES算法主函数，根据isEncrypt：bool分成加密解密两种情况。
+ */
 #include "transform.cpp"
 #include "iteration.cpp"
 #include <string>
-#include <iostream>
 using namespace std;
 
 // 辅助函数，将8字符字符串转成64位数据
